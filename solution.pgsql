@@ -88,6 +88,11 @@ COMMIT;
  * Create a view named `middle_earth_character` with the original structure of the data.
  * Run the query in the `app.pgsql` file and check the results.
  */
+ALTER TABLE middle_earth_character RENAME TO deprecated_middle_earth_character;
+CREATE VIEW middle_earth_character AS
+    SELECT id, name, gender, race, category FROM deprecated_middle_earth_character;
+
+SELECT * FROM middle_earth_character;
 
 
 /**
